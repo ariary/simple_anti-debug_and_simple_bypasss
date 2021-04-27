@@ -2,6 +2,8 @@
 # simple_anti-debug_and_simple_bypasss
 Nothing new on 🌍. Just a repository containing an Anti-debugging trick and its bypass
 
+*No pretension. I take notes only to learn, if it can interest some or if some can help me it is a plus*
+
 ## The trick
 `GDB`, `strace`, etc uses `PTRACE` syscall in order to debug. The trick consists of performing a `PTRACE` call on the program itself. If this action failed means that another process has already done it so we can exit the program.
 
@@ -109,6 +111,11 @@ export LD_PRELOAD="./cptrace.so"
 strace ./traceme1.out
 Hello debuggingless World!
 ```
+
+## Bypass 3 - patch the binary (🚧)
+with ```hexeditor```
+🚧 
+
 ## s/o
  - https://www.exploit-db.com/papers/13234 great paper! (anti-debugging trick, glibc initialization)
  - https://gist.github.com/poxyran/71a993d292eee10e95b4ff87066ea8f2: bypass 
