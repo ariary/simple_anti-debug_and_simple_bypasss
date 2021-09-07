@@ -123,4 +123,4 @@ with ```hexeditor```
 
 
 ----
-<p align=center><i> <b>An efficient anti-debugging technique</b> is to debbugg the process (<code>attach</code> it with <code>PTRACE</code> call) as  you cannot debug the same program with two debuggers at the same time </i></p>
+<p align=center><i> <b>An efficient anti-debugging technique</b> is to debug yourself the process (<code>attach</code> it with <code>PTRACE</code> call) as  you cannot debug the same program with two debuggers at the same time </i></p>
