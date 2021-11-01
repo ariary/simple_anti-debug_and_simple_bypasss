@@ -10,7 +10,7 @@ Nothing new on 🌍. Just a repository containing an Anti-debugging trick and it
 Another tricks added is that we perform this call in a constructor function, which is called before the `main` function with ELF executable. (***TIP:*** it is also a great place to hide a packer if you want to write a virus)
 
 ### Code
-```
+```C
 #include  <stdio.h>
 #include  <sys/ptrace.h>
 
@@ -30,7 +30,7 @@ int  main(int  argc, char **argv) {
 ```
 ### In action
 W/ `strace`:
-```
+```shell
 $ strace ./anti 
 execve("./anti", ["./anti"], 0x7ffd130fdd80 /* 44 vars */) = 0
 brk(NULL)                               = 0x56328c049000
@@ -42,7 +42,7 @@ exit_group(0)                           = ?
 ```
 
 Or w/ `gdb`:
-```
+```gdb
 $ gdb ./anti
 Reading symbols from ./anti...
 (No debugging symbols found in ./anti)
@@ -57,7 +57,7 @@ Don't ptrace me!
 `rax` is the 64-bit, "long" size register
 
 We will catch ptrace syscall and see what we want to bypass the check:
-```
+```gdb
 $ gdb ./anti
 gdb-peda$ catch syscall ptrace
 Catchpoint 1 (syscall 'ptrace' [101])
@@ -105,7 +105,7 @@ Hence if I defined a `ptrace` and load the `.so` it will be executed rather than
 
 ### In action
 
-```
+```shell
 make cptrace.so
 export LD_PRELOAD="./cptrace.so"
 strace ./traceme1.out
